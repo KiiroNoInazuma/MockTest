@@ -1,18 +1,15 @@
 package com.mocktest.service;
 
 import com.mocktest.repository.TeamRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
-
+@AllArgsConstructor
 @Service
 public class TeamServiceImpl implements TeamService {
     private final TeamRepository teamRepository;
-
-    public TeamServiceImpl(TeamRepository teamRepository) {
-        this.teamRepository = teamRepository;
-    }
 
     @Override
     public String add(String teamName) {
