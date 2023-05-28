@@ -11,17 +11,20 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class TeamServiceImplTest {
+public class TeamServiceImplTest {
     @Mock
-    TeamRepository teamRepository;
+    private TeamRepository repositoryMock;
+
     @InjectMocks
-    TeamServiceImpl impl;
+    private TeamServiceImpl teamService;
+    @Test
+    public void addTeam() {
+        when(repositoryMock.add("test")).thenReturn("test");
+        Assertions.assertEquals("test", teamService.add("test"));
+    }
 
     @Test
-    void addTeam() {
-        when(teamRepository.add("test")).thenReturn("test");
-        Assertions.assertEquals("test", impl.add("test"));
-
+    void add() {
     }
 
     @Test
